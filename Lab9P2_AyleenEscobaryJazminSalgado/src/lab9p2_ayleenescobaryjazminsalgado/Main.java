@@ -641,6 +641,7 @@ public class Main extends javax.swing.JFrame {
         jList_Registro.setModel(new DefaultListModel<>());
         DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
         ab = new AdministrarBarra(jProgressBar1, 4, Color.green);
+        ab.getBarra().setValue(0);
         ab.start();
         db.conectar();
         try {
@@ -667,7 +668,8 @@ public class Main extends javax.swing.JFrame {
     private void Bttn_DetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_DetailsMouseClicked
         jList_Registro.setModel(new DefaultListModel<>());
         DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
-        ab = new AdministrarBarra(jProgressBar1, 5, Color.orange);
+        ab = new AdministrarBarra(jProgressBar1, 5, Color.ORANGE);
+        ab.getBarra().setValue(0);
         ab.start();
         db.conectar();
         try {
@@ -697,6 +699,7 @@ public class Main extends javax.swing.JFrame {
         jList_Registro.setModel(new DefaultListModel<>());
         DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
         ab = new AdministrarBarra(jProgressBar1, 6, Color.red);
+        ab.getBarra().setValue(0);
         ab.start();
         db.conectar();
         try {
@@ -728,6 +731,7 @@ public class Main extends javax.swing.JFrame {
         jList_Registro.setModel(new DefaultListModel<>());
         DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
         ab = new AdministrarBarra(jProgressBar1, 3, Color.blue);
+        ab.getBarra().setValue(0);
         ab.start();
         db.conectar();
         try {
@@ -778,9 +782,9 @@ public class Main extends javax.swing.JFrame {
                     d[5] = rs.getString("City");
                     d[6] = rs.getString("ProductID");
                     d[7] = rs.getString("Sales");
-                    for (int i = 0; i < d.length; i++) {
-                        tb.addRow(d);
-                    }
+
+                    tb.addRow(d);
+
                 }
                 JOptionPane.showMessageDialog(this, "Datos actualizados exitosamente");
             }
@@ -792,17 +796,18 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Bttn_UpdateTablaMouseClicked
 
     private void Bttn_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_EliminarMouseClicked
-        int selectrow = tabla.getSelectedRow();
+        int select = tabla.getSelectedRow();
         ab = new AdministrarBarra(jProgressBar1, 5, Color.magenta);
+        ab.getBarra().setValue(0);
         ab.start();
         db.conectar();
-        if (selectrow >= 0) {
+        if (select >= 0) {
             try {
                 if (db != null && db.query != null) {
-                    db.query.execute("select OrderID,OrderDate,CustomerID,Country,City,ProductID,Sales from TenRecord");
+                    db.query.execute("select RowID,OrderID,OrderDate,CustomerID,Country,City,ProductID,Sales from TenRecord");
                     ResultSet rs = db.query.getResultSet();
                     while (rs.next()) {
-                        db.query.execute("delete from TenRecord where RowID=" + selectrow);
+                        db.query.execute("delete from TenRecord where RowID=" + tabla.getValueAt(select,0));
                         db.commit();
                     }
                     JOptionPane.showMessageDialog(this, "Dato eliminado, actualize la tabla");
