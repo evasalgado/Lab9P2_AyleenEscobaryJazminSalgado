@@ -45,7 +45,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="21" max="32767" attributes="0"/>
-                  <Component id="jTabbedPane1" min="-2" pref="753" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jProgressBar1" max="32767" attributes="0"/>
+                      <Component id="jTabbedPane1" min="-2" pref="753" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -53,7 +56,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="jProgressBar1" pref="54" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="414" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
@@ -361,18 +366,39 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_ProductID">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_OrderID">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_ShipMode">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Segment">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_State">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Sales">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_ProductName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
@@ -383,6 +409,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_OrderDate">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11/03/2004&#xa;"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
@@ -393,6 +422,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_ShipDate">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11/03/2004&#xa;"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
@@ -403,6 +435,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_CustomerID">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
@@ -413,6 +448,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_CustomerName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
@@ -423,6 +461,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Country">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
@@ -433,6 +474,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_City">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
@@ -443,6 +487,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Postal">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
@@ -453,6 +500,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Region">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel16">
                   <Properties>
@@ -463,6 +513,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Category">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
@@ -473,6 +526,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Sub_Category">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="texto"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
@@ -483,6 +539,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Quantity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
@@ -493,6 +552,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Discount">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel20">
                   <Properties>
@@ -503,6 +565,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="TF_Profit">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="Bttn_AgregarRegistro">
                   <Properties>
@@ -572,42 +637,57 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="Bttn_Orders">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="99" red="0" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Orders"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bttn_OrdersActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bttn_OrdersMouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Bttn_Details">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="66" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Details"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bttn_DetailsActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bttn_DetailsMouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Bttn_Customers">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="0" red="cc" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Customers"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bttn_CustomersActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bttn_CustomersMouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Bttn_Products">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="66" red="0" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Products"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bttn_ProductsActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bttn_ProductsMouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Bttn_Clear">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Clear"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bttn_ClearActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bttn_ClearMouseClicked"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -619,8 +699,8 @@
                   <SubComponents>
                     <Component class="javax.swing.JList" name="jList_Registro">
                       <Properties>
-                        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                          <StringArray count="0"/>
+                        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="new DefaultListModel&lt;&gt;()&#xd;&#xa;" type="code"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -690,7 +770,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable1">
+                    <Component class="javax.swing.JTable" name="tabla">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="8" rowCount="4">
@@ -713,6 +793,7 @@
                     <Property name="text" type="java.lang.String" value="Update Tabla"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bttn_UpdateTablaMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bttn_UpdateTablaActionPerformed"/>
                   </Events>
                 </Component>
@@ -721,6 +802,7 @@
                     <Property name="text" type="java.lang.String" value="Eliminar Registro"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Bttn_EliminarMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bttn_EliminarActionPerformed"/>
                   </Events>
                 </Component>
@@ -728,6 +810,8 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JProgressBar" name="jProgressBar1">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

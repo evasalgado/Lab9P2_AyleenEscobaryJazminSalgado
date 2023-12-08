@@ -11,19 +11,20 @@ import javax.swing.JProgressBar;
  *
  * @author evaja
  */
-public class AdministrarBarra extends Thread{
+public class AdministrarBarra extends Thread {
+
     private JProgressBar barra;
     private int num;
     private Color color;
     private boolean avanzar;
     private boolean vive;
 
-    public AdministrarBarra(JProgressBar barra, int num, Color color, boolean avanzar, boolean vive) {
+    public AdministrarBarra(JProgressBar barra, int num, Color color) {
         this.barra = barra;
         this.num = num;
         this.color = color;
-        avanzar=true;
-        vive=true;
+        avanzar = true;
+        vive = true;
     }
 
     public JProgressBar getBarra() {
@@ -68,22 +69,21 @@ public class AdministrarBarra extends Thread{
 
     @Override
     public void run() {
-        while (vive) {            
+        while (vive) {
             if (avanzar) {
-                barra.setBackground(color);
-                barra.setValue(barra.getValue()+1);
-                if (barra.getValue()==100000) {
-                    vive=false;
+                barra.setForeground(color);
+                barra.setValue(barra.getValue() + 1);
+                if (barra.getValue() == 100) {
+                    vive = false;
                 }
             }
-            try{
-                Thread.sleep(0);
-            }catch(InterruptedException e){
+            try {
+                Thread.sleep(10 * num);
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+
     }
-    
-    
-    
+
 }

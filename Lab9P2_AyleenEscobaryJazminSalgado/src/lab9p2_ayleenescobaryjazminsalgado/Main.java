@@ -4,10 +4,14 @@
  */
 package lab9p2_ayleenescobaryjazminsalgado;
 
+import java.awt.Color;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -85,9 +89,10 @@ public class Main extends javax.swing.JFrame {
         jList_Registro = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         Bttn_UpdateTabla = new javax.swing.JButton();
         Bttn_Eliminar = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,44 +121,84 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Sales:");
 
+        TF_ProductID.setText("texto");
+
+        TF_OrderID.setText("texto");
+
+        TF_ShipMode.setText("texto");
+
+        TF_Segment.setText("texto");
+
+        TF_State.setText("texto");
+
+        TF_Sales.setText("11");
+
+        TF_ProductName.setText("texto");
+
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Order Date:");
+
+        TF_OrderDate.setText("11/03/2004\n");
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Ship Date:");
 
+        TF_ShipDate.setText("11/03/2004\n");
+
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Customer ID:");
+
+        TF_CustomerID.setText("texto");
 
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Customer Name:");
 
+        TF_CustomerName.setText("texto");
+
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Country:");
+
+        TF_Country.setText("texto");
 
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("City:");
 
+        TF_City.setText("texto");
+
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Postal Code:");
+
+        TF_Postal.setText("11");
 
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Region:");
 
+        TF_Region.setText("texto");
+
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Category:");
+
+        TF_Category.setText("texto");
 
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Sub-Category:");
 
+        TF_Sub_Category.setText("texto");
+
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Quantity:");
+
+        TF_Quantity.setText("11");
 
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Discount:");
 
+        TF_Discount.setText("11");
+
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Profit:");
+
+        TF_Profit.setText("11");
 
         Bttn_AgregarRegistro.setText("Agregar Registro");
         Bttn_AgregarRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -343,41 +388,48 @@ public class Main extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        Bttn_Orders.setBackground(new java.awt.Color(0, 153, 51));
         Bttn_Orders.setText("Orders");
-        Bttn_Orders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bttn_OrdersActionPerformed(evt);
+        Bttn_Orders.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_OrdersMouseClicked(evt);
             }
         });
 
+        Bttn_Details.setBackground(new java.awt.Color(255, 102, 0));
         Bttn_Details.setText("Details");
-        Bttn_Details.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bttn_DetailsActionPerformed(evt);
+        Bttn_Details.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_DetailsMouseClicked(evt);
             }
         });
 
+        Bttn_Customers.setBackground(new java.awt.Color(204, 0, 51));
         Bttn_Customers.setText("Customers");
-        Bttn_Customers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bttn_CustomersActionPerformed(evt);
+        Bttn_Customers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_CustomersMouseClicked(evt);
             }
         });
 
+        Bttn_Products.setBackground(new java.awt.Color(0, 102, 204));
         Bttn_Products.setText("Products");
-        Bttn_Products.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bttn_ProductsActionPerformed(evt);
+        Bttn_Products.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_ProductsMouseClicked(evt);
             }
         });
 
+        Bttn_Clear.setBackground(new java.awt.Color(255, 255, 255));
         Bttn_Clear.setText("Clear");
-        Bttn_Clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bttn_ClearActionPerformed(evt);
+        Bttn_Clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_ClearMouseClicked(evt);
             }
         });
 
+        jList_Registro.setModel(new DefaultListModel<>()
+        );
         jScrollPane1.setViewportView(jList_Registro);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -419,7 +471,7 @@ public class Main extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -430,9 +482,14 @@ public class Main extends javax.swing.JFrame {
                 "Row ID", "Order ID", "Order Date", "Customer ID", "Country", "City", "Product ID", "Sales"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tabla);
 
         Bttn_UpdateTabla.setText("Update Tabla");
+        Bttn_UpdateTabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_UpdateTablaMouseClicked(evt);
+            }
+        });
         Bttn_UpdateTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Bttn_UpdateTablaActionPerformed(evt);
@@ -440,6 +497,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         Bttn_Eliminar.setText("Eliminar Registro");
+        Bttn_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_EliminarMouseClicked(evt);
+            }
+        });
         Bttn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Bttn_EliminarActionPerformed(evt);
@@ -483,13 +545,17 @@ public class Main extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -508,26 +574,6 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Bttn_OrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bttn_OrdersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bttn_OrdersActionPerformed
-
-    private void Bttn_DetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bttn_DetailsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bttn_DetailsActionPerformed
-
-    private void Bttn_CustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bttn_CustomersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bttn_CustomersActionPerformed
-
-    private void Bttn_ProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bttn_ProductsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bttn_ProductsActionPerformed
-
-    private void Bttn_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bttn_ClearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Bttn_ClearActionPerformed
-
     private void Bttn_UpdateTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bttn_UpdateTablaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Bttn_UpdateTablaActionPerformed
@@ -537,7 +583,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Bttn_EliminarActionPerformed
 
     private void Bttn_AgregarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_AgregarRegistroMouseClicked
-        db = new Dba("./TenRecord.mdb");
+        ab = new AdministrarBarra(jProgressBar1, 6, Color.yellow);
+        ab.start();
+
         db.conectar();
         try {
             String orderid = TF_OrderID.getText(),
@@ -562,29 +610,210 @@ public class Main extends javax.swing.JFrame {
                     discount = Double.parseDouble(TF_Discount.getText()),
                     profit = Double.parseDouble(TF_Profit.getText());
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-            Date sd = df.parse(shipdate),
-                    od=df.parse(orderdate);
+
             db.query.execute("INSERT INTO TenRecord"
-                    + "(orderid,orderdate,shipdate,shipmode"
-                    + ",costumerid,customername,segment,country,city,"
-                    + "state,postalcode,region,productid,"
-                    + "category,sub_category,productname,sales,"
-                    + "quantity,discount,profit)"
-                    + " VALUES ('" + orderid + "', '" + od + "', '" + sd + "', '"
-                    + shipmode + "', '" + customerid + "', '" + customername + "', '"
-                    + segment + "', '" + country + "', '" + city + "', '" + state + "', '"
-                    + postalcode + "', '" + region + "', '" + productid + "', '"
-                    + category + "', '" + subcategory + "', '" + productname + "', '"
-                    + sales + "', '" + quantity + "', '" + discount + "', '" + profit);
+                    + "(OrderId,OrderDate,ShipDate,ShipMode"
+                    + ",CustomerId,CustomerName,Segment,Country,City,"
+                    + "State,PostalCode,Region,ProductId,"
+                    + "Category,SubCategory,ProductName,Sales,"
+                    + "Quantity,Discount,Profit)"
+                    + " VALUES ('" + orderid + "','" + orderdate + "','" + shipdate + "','"
+                    + shipmode + "','" + customerid + "','" + customername + "','"
+                    + segment + "','" + country + "','" + city + "','" + state + "','"
+                    + postalcode + "','" + region + "','" + productid + "','"
+                    + category + "','" + subcategory + "','" + productname + "','"
+                    + sales + "','" + quantity + "','" + discount + "','" + profit + "')");
             db.commit();
+            ab.getBarra().setValue(0);
             JOptionPane.showMessageDialog(this, "Datos agregados correctamente");
+
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error al guardar datos");
 
         }
+
         db.desconectar();
+
     }//GEN-LAST:event_Bttn_AgregarRegistroMouseClicked
+
+    private void Bttn_OrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_OrdersMouseClicked
+        jList_Registro.setModel(new DefaultListModel<>());
+        DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
+        ab = new AdministrarBarra(jProgressBar1, 4, Color.green);
+        ab.start();
+        db.conectar();
+        try {
+            if (db != null && db.query != null) {
+                db.query.execute("select OrderID,OrderDate,ShipDate,CustomerID from TenRecord");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    l.addElement("Order ID:" + rs.getString("OrderID"));
+                    l.addElement("Order Date:" + rs.getString("OrderDate"));
+                    l.addElement("Ship Date:" + rs.getString("ShipDate"));
+                    l.addElement("Customer ID:" + rs.getString("CustomerID"));
+                    l.addElement("\n");
+                }
+                ab.getBarra().setValue(0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this, "Datos cargados exitosamente");
+        jList_Registro.setModel(l);
+        db.desconectar();
+    }//GEN-LAST:event_Bttn_OrdersMouseClicked
+
+    private void Bttn_DetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_DetailsMouseClicked
+        jList_Registro.setModel(new DefaultListModel<>());
+        DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
+        ab = new AdministrarBarra(jProgressBar1, 5, Color.orange);
+        ab.start();
+        db.conectar();
+        try {
+            if (db != null && db.query != null) {
+                db.query.execute("select OrderID,ProductID,Sales,Quantity,Discount,Profit from TenRecord");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    l.addElement("Order ID:" + rs.getString("OrderID"));
+                    l.addElement("Product ID:" + rs.getString("ProductID"));
+                    l.addElement("Sales:" + rs.getString("Sales"));
+                    l.addElement("Quantity:" + rs.getString("Quantity"));
+                    l.addElement("Discount:" + rs.getString("Discount"));
+                    l.addElement("Profit:" + rs.getString("Profit"));
+                    l.addElement("\n");
+                }
+                ab.getBarra().setValue(0);
+                JOptionPane.showMessageDialog(this, "Datos cargados exitosamente");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        jList_Registro.setModel(l);
+        db.desconectar();
+    }//GEN-LAST:event_Bttn_DetailsMouseClicked
+
+    private void Bttn_CustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_CustomersMouseClicked
+        jList_Registro.setModel(new DefaultListModel<>());
+        DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
+        ab = new AdministrarBarra(jProgressBar1, 6, Color.red);
+        ab.start();
+        db.conectar();
+        try {
+            if (db != null && db.query != null) {
+                db.query.execute("select CustomerID,CustomerName,Segment,Country,City,State,PostalCode,Region from TenRecord");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    l.addElement("Customer ID:" + rs.getString("CustomerID"));
+                    l.addElement("Customer Name:" + rs.getString("CustomerName"));
+                    l.addElement("Segment:" + rs.getString("Segment"));
+                    l.addElement("Country:" + rs.getString("Country"));
+                    l.addElement("City:" + rs.getString("City"));
+                    l.addElement("State:" + rs.getString("State"));
+                    l.addElement("Postal Code:" + rs.getString("PostalCode"));
+                    l.addElement("Region:" + rs.getString("Region"));
+                    l.addElement("\n");
+                }
+                ab.getBarra().setValue(0);
+                JOptionPane.showMessageDialog(this, "Datos cargados exitosamente");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        jList_Registro.setModel(l);
+        db.desconectar();
+    }//GEN-LAST:event_Bttn_CustomersMouseClicked
+
+    private void Bttn_ProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_ProductsMouseClicked
+        jList_Registro.setModel(new DefaultListModel<>());
+        DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
+        ab = new AdministrarBarra(jProgressBar1, 3, Color.blue);
+        ab.start();
+        db.conectar();
+        try {
+            if (db != null && db.query != null) {
+                db.query.execute("select ProductID,Category,SubCategory,ProductName from TenRecord");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    l.addElement("Product ID:" + rs.getString("ProductID"));
+                    l.addElement("Category:" + rs.getString("Category"));
+                    l.addElement("Sub Category:" + rs.getString("SubCategory"));
+                    l.addElement("Product name:" + rs.getString("ProductName"));
+
+                    l.addElement("\n");
+                }
+                ab.getBarra().setValue(0);
+                JOptionPane.showMessageDialog(this, "Datos cargados exitosamente");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        jList_Registro.setModel(l);
+        db.desconectar();
+    }//GEN-LAST:event_Bttn_ProductsMouseClicked
+
+    private void Bttn_ClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_ClearMouseClicked
+        jList_Registro.setModel(new DefaultListModel<>());
+        DefaultListModel l = (DefaultListModel) jList_Registro.getModel();
+        l.removeAllElements();
+        jList_Registro.setModel(l);
+    }//GEN-LAST:event_Bttn_ClearMouseClicked
+
+    private void Bttn_UpdateTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_UpdateTablaMouseClicked
+        tabla.removeAll();
+        Object d[] = new Object[8];
+        DefaultTableModel tb = (DefaultTableModel) tabla.getModel();
+        tb.setRowCount(0);
+        db.conectar();
+        try {
+            if (db != null & db.query != null) {
+                db.query.execute("select RowID,OrderID,OrderDate,CustomerID,Country,City,ProductID,Sales from TenRecord");
+                ResultSet rs = db.query.getResultSet();
+                while (rs.next()) {
+                    d[0] = rs.getString("RowID");
+                    d[1] = rs.getString("OrderID");
+                    d[2] = rs.getString("OrderDate");
+                    d[3] = rs.getString("CustomerID");
+                    d[4] = rs.getString("Country");
+                    d[5] = rs.getString("City");
+                    d[6] = rs.getString("ProductID");
+                    d[7] = rs.getString("Sales");
+                    for (int i = 0; i < d.length; i++) {
+                        tb.addRow(d);
+                    }
+                }
+                JOptionPane.showMessageDialog(this, "Datos actualizados exitosamente");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        tabla.setModel(tb);
+        db.desconectar();
+    }//GEN-LAST:event_Bttn_UpdateTablaMouseClicked
+
+    private void Bttn_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_EliminarMouseClicked
+        int selectrow = tabla.getSelectedRow();
+        ab = new AdministrarBarra(jProgressBar1, 5, Color.magenta);
+        ab.start();
+        db.conectar();
+        if (selectrow >= 0) {
+            try {
+                if (db != null && db.query != null) {
+                    db.query.execute("select OrderID,OrderDate,CustomerID,Country,City,ProductID,Sales from TenRecord");
+                    ResultSet rs = db.query.getResultSet();
+                    while (rs.next()) {
+                        db.query.execute("delete from TenRecord where RowID=" + selectrow);
+                        db.commit();
+                    }
+                    JOptionPane.showMessageDialog(this, "Dato eliminado, actualize la tabla");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            ab.getBarra().setValue(0);
+        }
+        db.desconectar();
+    }//GEN-LAST:event_Bttn_EliminarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -621,7 +850,8 @@ public class Main extends javax.swing.JFrame {
         });
     }
     AdministrarBarra ab;
-    Dba db = new Dba("./TenRecord.mdb");
+    Dba db = new Dba("./TenRecord.accdb");
+    int pos;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bttn_AgregarRegistro;
     private javax.swing.JButton Bttn_Clear;
@@ -676,9 +906,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
