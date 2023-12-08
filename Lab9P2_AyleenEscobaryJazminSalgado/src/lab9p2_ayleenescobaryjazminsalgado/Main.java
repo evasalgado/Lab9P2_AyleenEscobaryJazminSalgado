@@ -4,6 +4,11 @@
  */
 package lab9p2_ayleenescobaryjazminsalgado;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author famil
@@ -151,6 +156,11 @@ public class Main extends javax.swing.JFrame {
         jLabel20.setText("Profit:");
 
         Bttn_AgregarRegistro.setText("Agregar Registro");
+        Bttn_AgregarRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Bttn_AgregarRegistroMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -526,6 +536,56 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Bttn_EliminarActionPerformed
 
+    private void Bttn_AgregarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bttn_AgregarRegistroMouseClicked
+        db = new Dba("./TenRecord.mdb");
+        db.conectar();
+        try {
+            String orderid = TF_OrderID.getText(),
+                    orderdate = TF_OrderDate.getText(),
+                    shipdate = TF_ShipDate.getText(),
+                    shipmode = TF_ShipMode.getText(),
+                    customerid = TF_CustomerID.getText(),
+                    customername = TF_CustomerName.getText(),
+                    segment = TF_Segment.getText(),
+                    country = TF_Country.getText(),
+                    city = TF_City.getText(),
+                    state = TF_State.getText(),
+                    region = TF_Region.getText(),
+                    productid = TF_ProductID.getText(),
+                    category = TF_Category.getText(),
+                    subcategory = TF_Sub_Category.getText(),
+                    productname = TF_ProductName.getText();
+
+            int postalcode = Integer.parseInt(TF_Postal.getText()),
+                    quantity = Integer.parseInt(TF_Quantity.getText());
+            double sales = Double.parseDouble(TF_Sales.getText()),
+                    discount = Double.parseDouble(TF_Discount.getText()),
+                    profit = Double.parseDouble(TF_Profit.getText());
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date sd = df.parse(shipdate),
+                    od=df.parse(orderdate);
+            db.query.execute("INSERT INTO TenRecord"
+                    + "(orderid,orderdate,shipdate,shipmode"
+                    + ",costumerid,customername,segment,country,city,"
+                    + "state,postalcode,region,productid,"
+                    + "category,sub_category,productname,sales,"
+                    + "quantity,discount,profit)"
+                    + " VALUES ('" + orderid + "', '" + od + "', '" + sd + "', '"
+                    + shipmode + "', '" + customerid + "', '" + customername + "', '"
+                    + segment + "', '" + country + "', '" + city + "', '" + state + "', '"
+                    + postalcode + "', '" + region + "', '" + productid + "', '"
+                    + category + "', '" + subcategory + "', '" + productname + "', '"
+                    + sales + "', '" + quantity + "', '" + discount + "', '" + profit);
+            db.commit();
+            JOptionPane.showMessageDialog(this, "Datos agregados correctamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al guardar datos");
+
+        }
+        db.desconectar();
+    }//GEN-LAST:event_Bttn_AgregarRegistroMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -537,7 +597,7 @@ public class Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -560,7 +620,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    AdministrarBarra ab;
+    Dba db = new Dba("./TenRecord.mdb");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bttn_AgregarRegistro;
     private javax.swing.JButton Bttn_Clear;
